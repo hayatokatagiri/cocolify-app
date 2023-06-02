@@ -4,7 +4,7 @@ import MentalButton from "./components/MentalButton";
 const App = () => {
   return (
     <div>
-      <h1>おこまりのことはなんですか？</h1>
+      <h1>お困りのことはなんですか？</h1>
       <MentalButton />
     </div>
   );
