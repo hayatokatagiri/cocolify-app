@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import GetLocation from "./GetLocation";
+import { Button } from "@mui/material";
 
 const MoneyButton: React.FC = () => {
   const [showLocation, setShowLocation] = useState(false);
@@ -10,7 +11,9 @@ const MoneyButton: React.FC = () => {
 
   return (
     <div>
-      <button onClick={handleButtonClick}>お金</button>
+      <Button variant="contained" color="success" onClick={handleButtonClick}>
+        お金
+      </Button>
       {showLocation && <GetLocation />}
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Data from "./2023_jiritsushien_nationwide_addressmatched.json";
 
 const GetLocation: React.FC = () => {
   const [latitude, setLatitude] = useState<number | null>(null);
@@ -29,8 +30,14 @@ const GetLocation: React.FC = () => {
     <div>
       {latitude && longitude ? (
         <div>
-          <p>Latitude: {latitude}</p>
-          <p>Longitude: {longitude}</p>
+          <div>
+            <p>Latitude: {latitude}</p>
+            <p>Longitude: {longitude}</p>
+          </div>
+          <div className="jiritsushien">
+            <h2>お近くの行政による生活困窮窓口です</h2>
+            <p>2023年4月現在</p>
+          </div>
         </div>
       ) : error ? (
         <p>Error: {error}</p>
