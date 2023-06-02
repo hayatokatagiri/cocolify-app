@@ -1,7 +1,8 @@
 import React from "react";
 
 const PhysicalButton = () => {
-  return <div>PhysicalButton</div>;
+  const handleClick = () => {};
+  return <button onClick={handleClick}>からだ</button>;
 };
 
 export default PhysicalButton;
