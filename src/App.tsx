@@ -8,6 +8,7 @@ import DisplayText from "./components/DisplayText";
 import GetLocation from "./components/money/GetLocation";
 
 const App = () => {
+  };
   return (
     <Box
       display="flex"
