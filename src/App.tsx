@@ -9,6 +9,7 @@ import "./cocolify.css";
 import logo from "./cocolify_logo.png";
 import Coffee from "./Coffee";
 import VoiceButton from "./components/voice/VoiceButton";
+import SNSButton from "./components/SNSButton";
 // import BuyMeACoffeeButton from "./components/BuyMeAcCoffeeButton";
 
 const App = () => {
@@ -37,6 +38,9 @@ const App = () => {
         <VoiceButton />
       </Box>
       <Box>{/* <DisplayText /> */}</Box>
+      <Box>
+        <SNSButton />
+      </Box>
       <Box>
         <Coffee />
       </Box>
