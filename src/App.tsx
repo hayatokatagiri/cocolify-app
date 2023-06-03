@@ -4,9 +4,11 @@ import MoneyButton from "./components/money/MoneyButton";
 import OtherButton from "./components/other/OtherButton";
 import PhysicalButton from "./components/physical/PhysicalButton";
 import { Box, Button, Typography } from "@mui/material";
-import DisplayText from "./components/DisplayText";
+// import DisplayText from "./components/DisplayText";
 import "./cocolify.css";
 import logo from "./cocolify_logo.png";
+import Coffee from "./Coffee";
+import VoiceButton from "./components/voice/VoiceButton";
 // import BuyMeACoffeeButton from "./components/BuyMeAcCoffeeButton";
 
 const App = () => {
@@ -32,9 +34,13 @@ const App = () => {
         <OtherButton />
       </Box>
       <Box>
-        <DisplayText />
+        <VoiceButton />
       </Box>
-      <Box>{/* <BuyMeACoffeeButton /> */}</Box>
+      <Box>{/* <DisplayText /> */}</Box>
+      <Box>
+        <Coffee />
+      </Box>
+      <footer>Copyright (C) Hayato Katagiri All rights reserved.</footer>
     </Box>
   );
 };

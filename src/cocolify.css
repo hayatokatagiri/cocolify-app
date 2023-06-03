@@ -45,7 +45,8 @@ input, textarea {
 
 footer {
     background-color: white;
+    color: gray;
     height: 270px;
     text-align: center;
-    font-size: 12px;
+    font-size: 8px;
   }
