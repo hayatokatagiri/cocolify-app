@@ -1,0 +1,51 @@
+header {
+    font-family: "Josefin Sans";
+    height: 90px;
+    font-size: 15px;
+    color: #555555;
+}
+
+.header-logo{
+    float: left;
+}
+
+.main {
+    background-color: #f1b9c7;
+    height: 1000px;
+    text-align: center;
+    color: #555555;
+}
+
+li{
+    list-style:none;
+}
+
+
+input, textarea {
+    width: 400px; 
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    font-size: 18px;
+    border: 1px solid #dee7ec;
+}
+
+.contact-submit {
+    background-color: #dee7ec;
+    color: #889eab;
+}
+
+.btn-counselor {
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;   
+}
+
+footer {
+    background-color: white;
+    height: 270px;
+    text-align: center;
+    font-size: 12px;
+  }

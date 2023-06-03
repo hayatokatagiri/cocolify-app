@@ -5,7 +5,9 @@ import OtherButton from "./components/other/OtherButton";
 import PhysicalButton from "./components/physical/PhysicalButton";
 import { Box, Button, Typography } from "@mui/material";
 import DisplayText from "./components/DisplayText";
-import GetLocation from "./components/money/GetLocation";
+import "./cocolify.css";
+import logo from "./cocolify_logo.png";
+// import BuyMeACoffeeButton from "./components/BuyMeAcCoffeeButton";
 
 const App = () => {
   return (
@@ -16,14 +18,23 @@ const App = () => {
       alignItems="center"
       mt={10}
     >
+      <header>
+        <div className="header-logo">
+          <img src={logo} width={100} height={100} alt="Cocolify Logo" />
+        </div>
+        <div className="header-title">{/* <h1> Cocolify </h1> */}</div>
+      </header>
       <Typography variant="h4">お困りのことはなんですか？</Typography>
       <Box display="flex" flexDirection="row" gap={1}>
         <MoneyButton />
         <MentalButton />
-        {/* <PhysicalButton /> */}
+        <PhysicalButton />
         <OtherButton />
       </Box>
-      <DisplayText />
+      <Box>
+        <DisplayText />
+      </Box>
+      <Box>{/* <BuyMeACoffeeButton /> */}</Box>
     </Box>
   );
 };
