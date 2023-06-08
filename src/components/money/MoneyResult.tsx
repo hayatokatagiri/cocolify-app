@@ -99,7 +99,7 @@ const MoneyResult: React.FC = () => {
             <p>現在は：{location}にいます</p>
           </div>
           <div className="jiritsushien"> */}
-            <h2>行政による生活困窮窓口</h2>
+            <h2>行政による生活困窮窓口を探します</h2>
 
             <p>お住まいの市の名前を入力してください</p>
             <input

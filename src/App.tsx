@@ -46,13 +46,22 @@ const App = () => {
         <div className="header-title">{/* <h1> Cocolify </h1> */}</div>
       </header>
       <Typography variant="h4">お困りのことはなんですか？</Typography>
+      <p>
+        <textarea
+          value={inputValue}
+          onChange={handleOtherChange}
+          placeholder="お悩みの内容を入力してください"
+          rows={5} // 表示する行数を指定
+          style={{ width: "300px" }}
+        />
+      </p>
       <Box display="flex" flexDirection="row" gap={1}>
         <Button
           variant="contained"
           color="success"
           onClick={handleMoneyButtonClick}
         >
-          お金
+          お金に困っている
         </Button>
         <MentalButton />
         <PhysicalButton />

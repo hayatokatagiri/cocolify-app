@@ -5,7 +5,7 @@ const PhysicalButton = () => {
   const handleClick = () => {};
   return (
     <Button variant="contained" color="info" onClick={handleClick}>
-      からだ
+      からだがつらい
     </Button>
   );
 };

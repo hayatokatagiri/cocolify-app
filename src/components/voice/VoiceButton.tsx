@@ -16,7 +16,7 @@ const VoiceButton: React.FC = () => {
   return (
     <div>
       <Button variant="contained" color="info" onClick={handleClick}>
-        社会に声を届ける
+        社会に声を届けたい
       </Button>
       {showTextBox && (
         <p>
