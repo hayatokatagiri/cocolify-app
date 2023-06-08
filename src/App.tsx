@@ -4,13 +4,11 @@ import MoneyButton from "./components/money/MoneyButton";
 import OtherButton from "./components/other/OtherButton";
 import PhysicalButton from "./components/physical/PhysicalButton";
 import { Box, Button, Typography } from "@mui/material";
-// import DisplayText from "./components/DisplayText";
 import "./cocolify.css";
 import logo from "./cocolify_logo.png";
 import Coffee from "./Coffee";
 import VoiceButton from "./components/voice/VoiceButton";
 import SNSButton from "./components/SNSButton";
-// import BuyMeACoffeeButton from "./components/BuyMeAcCoffeeButton";
 
 const App = () => {
   return (
@@ -37,7 +35,7 @@ const App = () => {
       <Box>
         <VoiceButton />
       </Box>
-      <Box>{/* <DisplayText /> */}</Box>
+      {/* <Box>{component}</Box> */}
       <Box>
         <SNSButton />
       </Box>
