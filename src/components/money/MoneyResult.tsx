@@ -102,7 +102,12 @@ const MoneyResult: React.FC = () => {
             <h2>行政による生活困窮窓口</h2>
 
             <p>お住まいの市の名前を入力してください</p>
-            <input type="text" value={searchQuery} onChange={handleSearch} />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearch}
+              style={{ width: "250px" }}
+            />
             {/* フィルタリングされたデータの表示 */}
             {filteredData.map((item, index) => (
               <div key={index}>
