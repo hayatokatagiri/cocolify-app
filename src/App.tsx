@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MentalButton from "./components/mental/MentalButton";
-import MoneyButton from "./components/money/MoneyButton";
+// import MoneyButton from "./components/money/MoneyButton";
+import MoneyResult from "./components/money/MoneyResult";
 import OtherButton from "./components/other/OtherButton";
 import PhysicalButton from "./components/physical/PhysicalButton";
 import { Box, Button, Typography } from "@mui/material";
@@ -11,6 +12,11 @@ import VoiceButton from "./components/voice/VoiceButton";
 import SNSButton from "./components/SNSButton";
 
 const App = () => {
+  const [showLocation, setShowLocation] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowLocation(true);
+  };
   return (
     <Box
       display="flex"
@@ -27,7 +33,9 @@ const App = () => {
       </header>
       <Typography variant="h4">お困りのことはなんですか？</Typography>
       <Box display="flex" flexDirection="row" gap={1}>
-        <MoneyButton />
+        <Button variant="contained" color="success" onClick={handleButtonClick}>
+          お金
+        </Button>
         <MentalButton />
         <PhysicalButton />
         <OtherButton />
@@ -35,7 +43,7 @@ const App = () => {
       <Box>
         <VoiceButton />
       </Box>
-      {/* <Box>{component}</Box> */}
+      <Box>{showLocation && <MoneyResult />}</Box>
       <Box>
         <SNSButton />
       </Box>
