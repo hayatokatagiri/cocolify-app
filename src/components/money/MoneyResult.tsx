@@ -114,10 +114,21 @@ const MoneyResult: React.FC = () => {
                 <p>{item.cityname}</p>
                 <p>{item.organization}</p>
                 <p>{item.counter}</p>
-                <p>{item.telephone}</p>
+                <p>
+                  <a href={`tel:${item.telephone}`}>{item.telephone}</a>
+                </p>
                 <p>{item.address}</p>
-                <p>{item.mailadress}</p>
-                <p>2023年4月現在</p>
+                <p>
+                  {" "}
+                  <a href={`mailto:${item.mailadress}`}>{item.mailadress}</a>
+                </p>
+                <p>2022年6月現在</p>
+                <p>
+                  データソース：
+                  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000073432.html">
+                    厚生労働省
+                  </a>
+                </p>
                 {/* 他のデータフィールドも表示 */}
               </div>
             ))}
