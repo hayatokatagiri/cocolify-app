@@ -18,53 +18,53 @@ interface SupportData {
 }
 
 const MoneyResult: React.FC = () => {
-  //現在地の取得
-  const [latitude, setLatitude] = useState<number | null>(null);
-  const [longitude, setLongitude] = useState<number | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [location, setLocation] = useState<any>(null);
+  // //現在地の取得
+  // const [latitude, setLatitude] = useState<number | null>(null);
+  // const [longitude, setLongitude] = useState<number | null>(null);
+  // const [error, setError] = useState<string | null>(null);
+  // const [location, setLocation] = useState<any>(null);
 
-  useEffect(() => {
-    const fetchLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-          },
-          (error) => {
-            setError(error.message);
-          }
-        );
-        const fetchData = async () => {
-          try {
-            if (latitude !== null && longitude !== null) {
-              const response = await fetch(
-                `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=`
-              );
-              const data = await response.json();
+  // useEffect(() => {
+  //   const fetchLocation = () => {
+  //     if (navigator.geolocation) {
+  //       navigator.geolocation.getCurrentPosition(
+  //         (position) => {
+  //           setLatitude(position.coords.latitude);
+  //           setLongitude(position.coords.longitude);
+  //         },
+  //         (error) => {
+  //           setError(error.message);
+  //         }
+  //       );
+  //       const fetchData = async () => {
+  //         try {
+  //           if (latitude !== null && longitude !== null) {
+  //             const response = await fetch(
+  //               `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=`
+  //             );
+  //             const data = await response.json();
 
-              if (data.status === "OK") {
-                const result = data.results;
-                setLocation(result);
-                console.log(result);
-              } else {
-                // エラーハンドリング
-              }
-            }
-          } catch (error) {
-            // エラーハンドリング
-          }
-        };
+  //             if (data.status === "OK") {
+  //               const result = data.results;
+  //               setLocation(result);
+  //               console.log(result);
+  //             } else {
+  //               // エラーハンドリング
+  //             }
+  //           }
+  //         } catch (error) {
+  //           // エラーハンドリング
+  //         }
+  //       };
 
-        fetchData();
-      } else {
-        setError("Geolocation is not supported by your browser");
-      }
-    };
+  //       fetchData();
+  //     } else {
+  //       setError("Geolocation is not supported by your browser");
+  //     }
+  //   };
 
-    fetchLocation();
-  }, []);
+  //   fetchLocation();
+  // }, []);
 
   //自立支援機関の検索
   const [filteredData, setFilteredData] = useState<SupportData[]>([]);
@@ -91,54 +91,54 @@ const MoneyResult: React.FC = () => {
 
   return (
     <div>
-      {latitude && longitude ? (
+      {/* {latitude && longitude ? ( */}
+      <div>
         <div>
-          <div>
-            {/* <p>Latitude: {latitude}</p>
+          {/* <p>Latitude: {latitude}</p>
             <p>Longitude: {longitude}</p>
             <p>現在は：{location}にいます</p>
           </div>
           <div className="jiritsushien"> */}
-            <h2>行政による生活困窮窓口を探します</h2>
+          <h2>行政による生活困窮窓口を探します</h2>
 
-            <p>お住まいの市の名前を入力してください</p>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearch}
-              style={{ width: "250px" }}
-            />
-            {/* フィルタリングされたデータの表示 */}
-            {filteredData.map((item, index) => (
-              <div key={index}>
-                <p>{item.cityname}</p>
-                <p>{item.organization}</p>
-                <p>{item.counter}</p>
-                <p>
-                  <a href={`tel:${item.telephone}`}>{item.telephone}</a>
-                </p>
-                <p>{item.address}</p>
-                <p>
-                  {" "}
-                  <a href={`mailto:${item.mailadress}`}>{item.mailadress}</a>
-                </p>
-                <p>2022年6月現在</p>
-                <p>
-                  データソース：
-                  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000073432.html">
-                    厚生労働省
-                  </a>
-                </p>
-                {/* 他のデータフィールドも表示 */}
-              </div>
-            ))}
-          </div>
+          <p>お住まいの市の名前を入力してください</p>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearch}
+            style={{ width: "250px" }}
+          />
+          {/* フィルタリングされたデータの表示 */}
+          {filteredData.map((item, index) => (
+            <div key={index}>
+              <p>{item.cityname}</p>
+              <p>{item.organization}</p>
+              <p>{item.counter}</p>
+              <p>
+                <a href={`tel:${item.telephone}`}>{item.telephone}</a>
+              </p>
+              <p>{item.address}</p>
+              <p>
+                {" "}
+                <a href={`mailto:${item.mailadress}`}>{item.mailadress}</a>
+              </p>
+              <p>2022年6月現在</p>
+              <p>
+                データソース：
+                <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000073432.html">
+                  厚生労働省
+                </a>
+              </p>
+              {/* 他のデータフィールドも表示 */}
+            </div>
+          ))}
         </div>
-      ) : error ? (
+      </div>
+      {/* ) : error ? (
         <p>Error: {error}</p>
       ) : (
         <p>Loading location...</p>
-      )}
+      )} */}
     </div>
   );
 };
