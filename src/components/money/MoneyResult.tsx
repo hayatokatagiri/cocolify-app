@@ -1,6 +1,9 @@
 // 現在地を取得 or 検索バーに市町村を入力して、最寄りの自立支援機関を表示
 import React, { useState, useEffect } from "react";
 import SupportData from "../../2023_jiritsushien_nationwide_addressmatched.json";
+import "../../cocolify.css";
+import { Box, Button, Typography } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 // 自立支援データの型定義
 interface SupportData {
@@ -18,54 +21,6 @@ interface SupportData {
 }
 
 const MoneyResult: React.FC = () => {
-  // //現在地の取得
-  // const [latitude, setLatitude] = useState<number | null>(null);
-  // const [longitude, setLongitude] = useState<number | null>(null);
-  // const [error, setError] = useState<string | null>(null);
-  // const [location, setLocation] = useState<any>(null);
-
-  // useEffect(() => {
-  //   const fetchLocation = () => {
-  //     if (navigator.geolocation) {
-  //       navigator.geolocation.getCurrentPosition(
-  //         (position) => {
-  //           setLatitude(position.coords.latitude);
-  //           setLongitude(position.coords.longitude);
-  //         },
-  //         (error) => {
-  //           setError(error.message);
-  //         }
-  //       );
-  //       const fetchData = async () => {
-  //         try {
-  //           if (latitude !== null && longitude !== null) {
-  //             const response = await fetch(
-  //               `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=`
-  //             );
-  //             const data = await response.json();
-
-  //             if (data.status === "OK") {
-  //               const result = data.results;
-  //               setLocation(result);
-  //               console.log(result);
-  //             } else {
-  //               // エラーハンドリング
-  //             }
-  //           }
-  //         } catch (error) {
-  //           // エラーハンドリング
-  //         }
-  //       };
-
-  //       fetchData();
-  //     } else {
-  //       setError("Geolocation is not supported by your browser");
-  //     }
-  //   };
-
-  //   fetchLocation();
-  // }, []);
-
   //自立支援機関の検索
   const [filteredData, setFilteredData] = useState<SupportData[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -91,54 +46,34 @@ const MoneyResult: React.FC = () => {
 
   return (
     <div>
-      {/* {latitude && longitude ? ( */}
-      <div>
-        <div>
-          {/* <p>Latitude: {latitude}</p>
-            <p>Longitude: {longitude}</p>
-            <p>現在は：{location}にいます</p>
-          </div>
-          <div className="jiritsushien"> */}
-          <h2>行政による生活相談窓口を探します</h2>
+      <p>お住まいの市区町村の名前を入力してください</p>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={handleSearch}
+        style={{ width: "250px" }}
+      />
+      {/* フィルタリングされたデータの表示 */}
+      {filteredData.map((item, index) => (
+        <div key={index} className="resultBox">
+          <h3>{item.organization}</h3>
+          <h4>{item.counter}</h4>
 
-          <p>お住まいの市の名前を入力してください</p>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={handleSearch}
-            style={{ width: "250px" }}
-          />
-          {/* フィルタリングされたデータの表示 */}
-          {filteredData.map((item, index) => (
-            <div key={index}>
-              <p>{item.cityname}</p>
-              <p>{item.organization}</p>
-              <p>{item.counter}</p>
-              <p>
-                <a href={`tel:${item.telephone}`}>{item.telephone}</a>
-              </p>
-              <p>{item.address}</p>
-              <p>
-                {" "}
-                <a href={`mailto:${item.mailadress}`}>{item.mailadress}</a>
-              </p>
-              <p>2022年6月現在</p>
-              <p>
-                データソース：
-                <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000073432.html">
-                  厚生労働省
-                </a>
-              </p>
-              {/* 他のデータフィールドも表示 */}
-            </div>
-          ))}
+          <p>
+            <a href={`tel:${item.telephone}`}>
+              <Button variant="contained" color="secondary" size="large">
+                <PhoneIcon />{" "}
+              </Button>
+            </a>
+          </p>
+          <div className="resultBox-details">
+            <p>担当地域：{item.cityname}</p>
+            <p>住所：{item.address}</p>
+            <p>{item.telephone}</p>
+            <p>{item.mailadress}</p>
+          </div>
         </div>
-      </div>
-      {/* ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <p>Loading location...</p>
-      )} */}
+      ))}
     </div>
   );
 };
