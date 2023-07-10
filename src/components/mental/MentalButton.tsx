@@ -8,7 +8,7 @@ const MentalButton = () => {
   };
   return (
     <Button variant="contained" color="primary" onClick={handleClick}>
-      こころ
+      こころがしんどい
     </Button>
   );
 };

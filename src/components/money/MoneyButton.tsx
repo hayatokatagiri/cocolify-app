@@ -1,5 +1,7 @@
+// 「お金」ボタンのコンポーネント
 import React, { useState } from "react";
-import GetLocation from "./GetLocation";
+// 現在地を取得するMoneyResultコンポーネントの読み込み
+import MoneyResult from "./MoneyResult";
 import { Button } from "@mui/material";
 
 const MoneyButton: React.FC = () => {
@@ -14,7 +16,7 @@ const MoneyButton: React.FC = () => {
       <Button variant="contained" color="success" onClick={handleButtonClick}>
         お金
       </Button>
-      {showLocation && <GetLocation />}
+      {showLocation && <MoneyResult />}
     </div>
   );
 };
