@@ -12,11 +12,14 @@ const GoogleSearchButton = ({ keywords }: KeywordsType) => {
     window.open(searchUrl, "_blank");
   };
   return (
-    <button onClick={handleClick}>
-      <Button variant="contained" color="primary" size="large">
-        Web検索
-      </Button>
-    </button>
+    <Button
+      variant="contained"
+      color="primary"
+      size="large"
+      onClick={handleClick}
+    >
+      Web検索
+    </Button>
   );
 };
 
