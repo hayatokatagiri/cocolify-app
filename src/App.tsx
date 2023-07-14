@@ -35,7 +35,7 @@ const App = () => {
   };
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Box
         display="flex"
         flexDirection="column"
