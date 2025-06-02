@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 import SupportData from "../../2023_jiritsushien_nationwide_addressmatched.json";
 import "../../cocolify.css";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
+import GoogleSearchButton from "../GoogleSearchButton";
 
 // 自立支援データの型定義
 interface SupportData {
@@ -58,14 +59,27 @@ const MoneyResult: React.FC = () => {
         <div key={index} className="resultBox">
           <h3>{item.organization}</h3>
           <h4>{item.counter}</h4>
-
-          <p>
-            <a href={`tel:${item.telephone}`}>
-              <Button variant="contained" color="secondary" size="large">
-                <PhoneIcon />{" "}
-              </Button>
-            </a>
-          </p>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            spacing={2}
+          >
+            <Grid item>
+              {/* 施設名でGoogle検索 */}
+              <GoogleSearchButton
+                keywords={`${item.organization} ${item.counter} ${item.cityname}`}
+              />
+            </Grid>
+            <Grid item>
+              {/* 電話ボタン */}
+              <a href={`tel:${item.telephone}`}>
+                <Button variant="contained" color="secondary" size="large">
+                  <PhoneIcon />{" "}
+                </Button>
+              </a>
+            </Grid>
+          </Grid>
           <div className="resultBox-details">
             <p>担当地域：{item.cityname}</p>
             <p>住所：{item.address}</p>
