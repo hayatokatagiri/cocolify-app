@@ -1,7 +1,7 @@
 # 孤立者への支援アプリ Cocolify
 
 - Cocolify の開発は v2 に移行（2025.6.4）。
-  https://github.com/hayatokatagiri/cocolify_v2
+- URL: https://github.com/hayatokatagiri/cocolify_v2
 
 ## コンセプト
 
