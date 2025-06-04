@@ -50,6 +50,36 @@ const App = () => {
           <div className="header-title">{/* <h1> Cocolify </h1> */}</div>
         </header>
         <Typography variant="h4">地域のサポートを探します</Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            background: "#e3f2fd",
+            color: "#1976d2",
+            fontWeight: "bold",
+            borderRadius: "8px",
+            padding: "12px 24px",
+            boxShadow: "0 2px 8px rgba(25, 118, 210, 0.1)",
+            mb: 2,
+            textAlign: "center",
+            display: "inline-block",
+          }}
+        >
+          Cocolifyの最新版は
+          <a
+            href="https://magenta-donut-ed6ee4.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#1976d2",
+              textDecoration: "underline",
+              margin: "0 8px",
+              fontWeight: "bold",
+              fontSize: "1.2em",
+            }}
+          >
+            こちら
+          </a>
+        </Typography>
         <Box display="flex" flexDirection="row" gap={1}>
           <Button
             variant="contained"
@@ -75,9 +105,7 @@ const App = () => {
         <Box>
           <SNSButton />
         </Box>
-        <Box>
-          <Coffee />
-        </Box>
+        <Box>{/* <Coffee /> */}</Box>
         <footer>
           <p>2022年6月現在</p>
           <p>
